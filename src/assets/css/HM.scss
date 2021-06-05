@@ -1,0 +1,77 @@
+@for $i from 1 through 720 {
+  .h-width-#{$i} {
+    width: $i * 2px;
+  }
+  .h-height-#{$i} {
+    height: $i * 2px;
+  }
+  .h-flex-#{$i} {
+    flex: $i;
+  }
+  .h-margin-#{$i} {
+    margin: $i * 2px;
+  }
+  .h-padding-#{$i} {
+    padding: $i * 2px;
+  }
+  @each $direction in top,left,bottom,right {
+    .h-margin-#{$direction}-#{$i} {
+      margin-#{$direction}: $i * 2px;
+    }
+    .h-padding-#{$direction}-#{$i} {
+      padding-#{$direction}: $i * 2px;
+    }
+  }
+  @each $direction in top-bottom,left-right {
+    @if $direction == top-bottom {
+      .h-margin-#{$direction}-#{$i} {
+        margin: $i * 2px 0 $i * 2px 0;
+      }
+      .h-padding-#{$direction}-#{$i} {
+        padding: $i * 2px 0 $i * 2px 0;
+      }
+    }
+    @if $direction == left-right {
+      .h-margin-#{$direction}-#{$i} {
+        margin: 0 $i * 2px 0 $i * 2px;
+      }
+      .h-padding-#{$direction}-#{$i} {
+        padding: 0 $i * 2px 0 $i * 2px;
+      }
+    }
+  }
+}
+
+.h-flex {
+  display:flex;
+}
+.h-flex-column {
+  display:flex;
+  flex-direction: column;
+}
+
+@each $item in stretch, center, flex-start, flex-end, baseline, initial, inherit {
+  .h-ali-#{$item} {
+    align-items: $item;
+  }
+}
+@each $item in flex-start, flex-end, center, space-between, space-around, initial, inherit {
+  .h-jus-#{$item} {
+    justify-content: $item;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
+
+
+.h-pos-abs {
+  position: absolute;
+}
+.h-pos-rel {
+  position: relative;
+}
